@@ -11,7 +11,6 @@ public class Ship : MonoBehaviour
     private float _horizontal;
     [SerializeField] private float _maxRotate;
     [SerializeField] private GameObject _shipModel;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -47,14 +46,25 @@ public class Ship : MonoBehaviour
             }
         }
 
-        Vector3 rotateH = new Vector3(0, _vertical, 0);
+        Vector3 rotateH = new Vector3(0, _horizontal, 0);
         transform.Rotate(rotateH * _rotSpeed * Time.deltaTime);
 
-        Vector3 rotateV = new Vector3(_horizontal, 0, 0);
+        Vector3 rotateV = new Vector3(_vertical, 0, 0);
         transform.Rotate(rotateV * _rotSpeed * Time.deltaTime);
 
-        transform.Rotate(new Vector3(0, 0, -_vertical * 0.2f), Space.Self);
 
+
+        _shipModel.transform.Rotate(new Vector3(0, 0, -_vertical * 0.2f), Space.Self);
+
+        if (_vertical == 0)
+        {
+            Vector3 rot = _shipModel.transform.localEulerAngles;
+            rot.z = Mathf.LerpAngle(rot.z, 0, 10f * Time.deltaTime);
+            _shipModel.transform.localEulerAngles = rot;
+        } 
         transform.position += transform.forward * _currentSpeed * Time.deltaTime;
+
+
     }
+
 }
