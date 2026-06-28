@@ -2,6 +2,7 @@ using Cinemachine;
 using UnityEngine;
 public class CameraManagement : MonoBehaviour
 {
+   
     [SerializeField]
     private CinemachineVirtualCamera _cockpitCamera;
     [SerializeField]
@@ -14,8 +15,8 @@ public class CameraManagement : MonoBehaviour
     private GameObject _ship; 
     [SerializeField]
     private bool _isCockpit;
-    private float _timer=5f; 
-    private float _now=5f;
+    private float _timer=15f; 
+    private float _now=15f;
     private int _order=0;
     private void Start()
     {
@@ -24,6 +25,7 @@ public class CameraManagement : MonoBehaviour
         _ship.gameObject.SetActive(false);
         _cockpitCamera.GetComponent<CinemachineVirtualCamera>().Priority = 15;
     }
+
     void Update()
     {   
         if(_isCockpit == false)
@@ -31,6 +33,7 @@ public class CameraManagement : MonoBehaviour
             if (Input.anyKey || Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
             {
                 _now = Time.time + _timer;
+
                 if (_order != 0)
                 {
                     _order = 0;

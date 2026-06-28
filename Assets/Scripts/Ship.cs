@@ -1,23 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    [SerializeField] private float _rotSpeed;
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _currentSpeed;
+    [SerializeField]
+    private float _rotSpeed;
+    [SerializeField]
+    private float _moveSpeed;
+    [SerializeField]
+    private float _currentSpeed;
     private float _vertical;
     private float _horizontal;
-    [SerializeField] private float _maxRotate;
-    [SerializeField] private GameObject _shipModel;
-    // Start is called before the first frame update
+    [SerializeField]
+    private float _maxRotate;
+    [SerializeField]
+    private GameObject _shipModel;
     void Start()
     {
         _currentSpeed = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         ShipMovement();
@@ -35,7 +36,7 @@ public class Ship : MonoBehaviour
             {
                 _currentSpeed = 4;
             }
-        }//increase speed
+        }
 
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -52,8 +53,6 @@ public class Ship : MonoBehaviour
         Vector3 rotateV = new Vector3(_vertical, 0, 0);
         transform.Rotate(rotateV * _rotSpeed * Time.deltaTime);
 
-
-
         _shipModel.transform.Rotate(new Vector3(0, 0, -_vertical * 0.2f), Space.Self);
 
         if (_vertical == 0)
@@ -62,9 +61,8 @@ public class Ship : MonoBehaviour
             rot.z = Mathf.LerpAngle(rot.z, 0, 10f * Time.deltaTime);
             _shipModel.transform.localEulerAngles = rot;
         } 
+
         transform.position += transform.forward * _currentSpeed * Time.deltaTime;
-
-
     }
 
 }

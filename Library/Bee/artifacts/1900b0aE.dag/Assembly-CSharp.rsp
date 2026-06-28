@@ -389,10 +389,12 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.62f3/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.62f3/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/CameraManagement.cs"
-"Assets/Scripts/CutsceneManager.cs"
+"Assets/Scripts/FirstCutscene.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Ship.cs"
 "Assets/Scripts/Trigger.cs"
+"Assets/Scripts/Trigger2.cs"
+"Assets/Scripts/UIManager.cs"
 -langversion:9.0
 /deterministic
 /optimize+
